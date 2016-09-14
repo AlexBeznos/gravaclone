@@ -1,16 +1,17 @@
-<div id="clearance" class="password-reset">
-  <h2><%= t(".title") %></h2>
-
-  <p><%= t(".description") %></p>
-
-  <%= form_for :password, url: passwords_path do |form| %>
-    <div class="text-field">
-      <%= form.label :email %>
-      <%= form.text_field :email, type: 'email' %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h3 class="text-center"><%= t(".title") %></h3>
+        <% flash.each do |key, value| %>
+          <div class="alert alert-danger"><%= value %></div>
+        <% end %>
+        <p><%= t(".description") %></p>
+        <%= bootstrap_form_for :password, url: passwords_path, label_errors: true do |f| %>
+          <%= f.email_field :email %>
+          <%= f.submit %>
+        <% end %>
+      </div>
     </div>
-
-    <div class="submit-field">
-      <%= form.submit %>
-    </div>
-  <% end %>
+  </div>
 </div>

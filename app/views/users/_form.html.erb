@@ -1,7 +1,6 @@
-<%= bootstrap_form_for @user, label_errors: true do |f| %>
-  <%= f.email_field :first_name %>
-  <%= f.email_field :last_name %>
-  <%= f.email_field :email %>
-  <%= f.password_field :password %>
-  <%= f.submit "Sign Up" %>
-<% end %>
+  <%= form.text_field :first_name %>
+  <%= form.text_field :last_name %>
+  <%= form.text_field :full_name %>
+  <%= form.email_field :email, value: form.object.email %>
+  <%= form.password_field :password %>
+  <%= form.submit %>

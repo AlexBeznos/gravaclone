@@ -4,4 +4,11 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   post 'users' => 'users#create'
+  resources :users, only: :create do
+    collection do
+      get 'edit' => 'users#edit'
+      put 'save' => 'users#update'
+      patch 'save' => 'users#update'
+    end
+  end
 end

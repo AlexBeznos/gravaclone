@@ -57,3 +57,5 @@ en:
     new:
       sign_in: Sign in
       title: Sign up
+    edit:
+      title: Name and Details
