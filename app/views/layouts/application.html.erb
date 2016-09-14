@@ -13,11 +13,13 @@
        <div class="header clearfix">
          <nav>
            <ul class="nav nav-pills pull-right">
-             <li role="presentation"><a href="#">Log in</a></li>
-             <li role="presentation"><a href="#">Sign up</a></li>
+             <% unless signed_in? %>
+               <li role="presentation"><%= link_to 'Log in', sign_in_path %></li>
+               <li role="presentation"><%= link_to 'Sign up', sign_up_path %></li>
+             <% end %>
            </ul>
          </nav>
-         <h3 class="text-muted">GravaClone</h3>
+         <h3 class="text-muted"><a href='/'>GravaClone</a></h3>
        </div>
 
        <%= yield %>

@@ -19,6 +19,8 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'slim-rails'
 
+gem 'bootstrap_form'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -31,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'doorkeeper'
-gem 'authlogic'
+gem 'clearance'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
