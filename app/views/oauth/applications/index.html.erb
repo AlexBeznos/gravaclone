@@ -1,0 +1,25 @@
+<% if @applications.any? %>
+  <h3 class="text-center"><%= t(".title") %></h3>
+
+  <div class="row">
+    <% @applications.each do |application| %>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <%= link_to application.name, oauth_application_path(application) %>
+            <div class="btn-group btn-group-xs pull-right" role="group" >
+              <%= link_to 'Edit', edit_oauth_application_path(application), class: 'btn btn-primary' %>
+              <%= link_to 'Destroy', oauth_application_path(application), class: 'btn btn-danger', method: :destroy %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="jumbotron">
+    <h1>It is no apps, for now :(</h1>
+    <p class="lead">Try to add application to be able to send requests to api and authenticate users with our service.</p>
+    <p><%= link_to 'Add new app', new_oauth_application_path, class: 'btn btn-lg btn-success'%></p>
+  </div>
+<% end %>
