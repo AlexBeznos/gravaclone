@@ -1,4 +1,5 @@
 class UsersController < Clearance::UsersController
+  before_action :require_login, only: [:edit, :update]
 
   def edit
     @user = current_user
