@@ -35,6 +35,8 @@ gem 'doorkeeper'
 gem 'clearance'
 # CORS protection setup
 gem 'rack-cors', :require => 'rack/cors'
+# Markdown reader
+gem 'redcarpet'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

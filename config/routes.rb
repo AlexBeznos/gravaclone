@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   post 'users' => 'users#create'
+  get 'pages/:name' => 'pages#show', as: :page
   resources :users, only: :create do
     collection do
       get 'edit' => 'users#edit'
