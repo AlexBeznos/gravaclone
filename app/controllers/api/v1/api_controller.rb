@@ -1,4 +1,4 @@
-class API::V1::ApplicationController < ActionController::API
+class API::V1::ApiController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   before_action :doorkeeper_authorize!
 

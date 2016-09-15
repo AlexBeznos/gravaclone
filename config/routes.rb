@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:index] do
+        get 'me' => 'users#me', on: :collection
         get ':email' => 'users#show', on: :collection
       end
     end
