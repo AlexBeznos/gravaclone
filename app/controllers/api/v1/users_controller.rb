@@ -6,7 +6,9 @@ class API::V1::UsersController < API::V1::ApplicationController
 
   def show
     encoded_email = Base64.urlsafe_decode64(params[:email])
-    @user = User.find_by(email: encoded_email)
+    @user = User.find_by!(email: encoded_email)
     render json: @user
+  rescue ArgumentError
+    render json: { error: 'Wrong base64 format' }
   end
 end
