@@ -9,10 +9,10 @@ class UsersController < Clearance::UsersController
     @user = current_user
 
     if @user.update(user_params)
-      render :edit, notice: 'Saved successfully'
-    else
-      render :edit
+      flash[:notice] = 'Saved successfully'
     end
+
+    render :edit
   end
 
   private

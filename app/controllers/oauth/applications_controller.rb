@@ -7,8 +7,12 @@ class Oauth::ApplicationsController < Doorkeeper::ApplicationsController
     @applications = current_user.oauth_applications.select(:id, :name)
   end
 
+  def new
+    @application = ClientApplication.new
+  end
+
   def create
-    @application = Doorkeeper::Application.new(application_params)
+    @application = ClientApplication.new(application_params)
     @application.owner = current_user if Doorkeeper.configuration.confirm_application_owner?
     if @application.save
       flash[:notice] = I18n.t(:notice, :scope => [:doorkeeper, :flash, :applications, :create])
@@ -22,6 +26,10 @@ class Oauth::ApplicationsController < Doorkeeper::ApplicationsController
 
   def set_application
     @application = current_user.oauth_applications.find(params[:id])
+  end
+
+  def application_params
+    params.require(:client_application).permit(:name, :redirect_uri, :scopes, :user_update_url)
   end
 
 end

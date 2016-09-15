@@ -18,5 +18,7 @@ module Gravatar
         resource '*', :headers => :any, :methods => [:get, :post, :put, :delete, :options]
       end
     end
+
+    config.active_job.queue_adapter = :sucker_punch
   end
 end

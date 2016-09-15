@@ -1,11 +1,14 @@
 class API::V1::UsersController < API::V1::ApiController
+  after_action :create_footprint
+
   def index
     @users = User.all
     render json: @users
   end
 
   def me
-    render json: current_resource_owner
+    @user = current_resource_owner
+    render json: @user
   end
 
   def show
@@ -20,5 +23,12 @@ class API::V1::UsersController < API::V1::ApiController
 
   def current_resource_owner
     User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
+  end
+
+  def create_footprint
+    Footprint.find_or_create_by!(
+      user: @user,
+      application_id: doorkeeper_token.application_id
+    )
   end
 end
