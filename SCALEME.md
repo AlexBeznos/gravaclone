@@ -1,24 +1,12 @@
-# README
+# SCALEME
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Если честно не сильно понял, что конкретно должно быть написанно здесь.
+Так как в рамках одного виртуального окружения вообще, как мне кажеться, не реально показать каким
+образом можно скейлить приложение.
 
-Things you may want to cover:
+Я бы скейлил приложение наращивая количество инстансов с приложением.
+После того как я увидил бы что приложение начинает присидать из за того что база не успевает обрабатывать все запросы,
+я бы увеличивал кластер баз данных, что бы дать возможность обрабатывать больше read запросов.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Так же я бы безусловно перешел бы с `sucker_punch` на `sidekiq` так как `sidekiq` смог бы на много быстрее обрабатывать
+запросы в очереди из за наращивания инстансов и единого хранилища очереди в `redis`.
